@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ecommerce">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="ecommerce"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +38,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyDd81MpJcxjNdICQeKRg3Emywp4e_29Sfc"/>
     </application>
 </manifest>

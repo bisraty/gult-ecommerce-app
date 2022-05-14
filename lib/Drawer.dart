@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-
 
 class Home_drawer extends StatefulWidget {
   @override
@@ -15,7 +12,7 @@ class _Home_drawerState extends State<Home_drawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
-        color:  Color(0xffEAF4FC),
+        color: Color(0xffEAF4FC),
         child: ListView(
           children: <Widget>[
             Padding(
@@ -72,7 +69,7 @@ class _Home_drawerState extends State<Home_drawer> {
                     onClicked: () => selectedItem(context, 5),
                   ),
                   buildMenuItem(
-                    text:  "Logout",
+                    text: "Logout",
                     icon: Icons.logout,
                     onClicked: () => selectedItem(context, 6),
                   ),
@@ -124,9 +121,9 @@ class _Home_drawerState extends State<Home_drawer> {
         break;
 
       case 3:
-      // Navigator.of(context).push(MaterialPageRoute(
-      //   builder: (context) => SavedBlog(),
-      // ));
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => SavedBlog(),
+        // ));
         break;
       case 5:
         // _showMyDialog();

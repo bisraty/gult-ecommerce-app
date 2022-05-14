@@ -1,3 +1,4 @@
+import 'package:ecommerce/Auth/preload.dart';
 import 'package:flutter/material.dart';
 
 import 'Homepage.dart';
@@ -12,10 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-
-      home: Homepage(),
+      home: PreloadContent(),
     );
   }
 }
-
-
