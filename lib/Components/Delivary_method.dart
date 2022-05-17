@@ -3,6 +3,7 @@ import 'package:ecommerce/Components/location_service.dart';
 import 'package:ecommerce/Delivary_checkout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -67,7 +68,22 @@ TextEditingController _longDsearchControler=TextEditingController();
   GoogleMapController _googlemapcontrollerforlongD;
   Marker _origin ;
   Marker _destination;
+  BitmapDescriptor myIconS;
+  void addicons() async{
 
+    BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(size: Size(48, 48)), "assets/shop_icon3.png")
+        .then((onValue) {
+      myIconS = onValue;
+    });
+  }
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    addicons();
+
+  }
   Future <void> _gotosearch(Map<String,dynamic> place) async{
     print(place);
     final double lat=place['geometry']['location']['lat'];
@@ -278,58 +294,56 @@ TextEditingController _longDsearchControler=TextEditingController();
                       ]),
                 ),
               ),
+              _selfpickup?
               Container(
-                child:_selfpickup?
-                Container(
-                  height: 250,
-                  child: GoogleMap(
-                    initialCameraPosition: CameraPosition(target: LatLng(9.033140,38.750080 ), zoom: 11.5),
-                    myLocationButtonEnabled:true,
-                    myLocationEnabled: true,
-                    zoomControlsEnabled: true,
-                    markers: {
-                      Marker(
-                        markerId: MarkerId('Mekel'),
-                        infoWindow: InfoWindow(title:"Meskel flower shop"),
-                        icon: BitmapDescriptor.fromAsset("assets/shop_icon3.png",),
-                        // BitmapDescriptor.defaultMarkerWithHue(
-                        //   BitmapDescriptor.hueGreen,
-                        // ),
-                        position: LatLng( 8.9933,38.7084),
+                height: 250,
+                child: GoogleMap(
+                  initialCameraPosition: CameraPosition(target: LatLng(9.033140,38.750080 ), zoom: 11.5),
+                  myLocationButtonEnabled:true,
+                  myLocationEnabled: true,
+                  zoomControlsEnabled: true,
+                  markers: {
+                    Marker(
+                      markerId: MarkerId('Mekel'),
+                      infoWindow: InfoWindow(title:"Meskel flower shop"),
+                      icon:  myIconS,
+                      // BitmapDescriptor.defaultMarkerWithHue(
+                      //   BitmapDescriptor.hueGreen,
+                      // ),
+                      position: LatLng( 8.9933,38.7084),
 
-                      ),
-                      Marker(
-                        markerId: MarkerId('Bola'),
-                        infoWindow: InfoWindow(title:"Bola Shop"),
-                        icon: BitmapDescriptor.fromAsset("assets/shop_icon3.png",),
-                        // icon: BitmapDescriptor.defaultMarkerWithHue(
-                        //   BitmapDescriptor.hueGreen,
-                        // ),
-                        position: LatLng( 8.9769,38.8),
+                    ),
+                    Marker(
+                      markerId: MarkerId('Bola'),
+                      infoWindow: InfoWindow(title:"Bola Shop"),
+                      icon:  myIconS,
+                      // icon: BitmapDescriptor.defaultMarkerWithHue(
+                      //   BitmapDescriptor.hueGreen,
+                      // ),
+                      position: LatLng( 8.9769,38.8),
 
-                      )
-                    },
-                    onMapCreated: (controller) {
-                      _googlemapcontroller = controller;
-                    },
-                  ),
-                ):
-                _longdistance?
-                Container(
-                  height: 250,
-                  child: GoogleMap(
-                    initialCameraPosition:CameraPosition(target: LatLng(9.033140,38.750080), zoom: 11.5),
-                    myLocationButtonEnabled: false,
-                    zoomControlsEnabled: true,
-                    markers:{
+                    )
+                  },
+                  onMapCreated: (controller) {
+                    _googlemapcontroller = controller;
+                  },
+                ),
+              ):
+              _longdistance?
+              Container(
+                height: 250,
+                child: GoogleMap(
+                  initialCameraPosition:CameraPosition(target: LatLng(9.033140,38.750080), zoom: 11.5),
+                  myLocationButtonEnabled: false,
+                  zoomControlsEnabled: true,
+                  markers:{
 
-                    },
-                    onMapCreated: (controller) {
-                      _googlemapcontroller = controller;
-                    },
-                  ),
-                ):   _Express?Express():Container(),
-              ),
+                  },
+                  onMapCreated: (controller) {
+                    _googlemapcontroller = controller;
+                  },
+                ),
+              ):   _Express?Express():Container(),
 
               Display()
             ],

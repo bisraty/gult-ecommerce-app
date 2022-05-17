@@ -34,7 +34,7 @@ dependencies:
   dio:
   lottie: 0.7.0+1
   flutter_polyline_points:
-  google_maps_flutter: ^1.2.0
+  google_maps_flutter: ^2.0.4
   google_place: ^0.3.3
   http:
   geolocator:

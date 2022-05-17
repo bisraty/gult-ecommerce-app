@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:ecommerce/Categorypage.dart';
 import 'package:ecommerce/Components/Card.dart';
 import 'package:ecommerce/Drawer.dart';
+import 'package:ecommerce/Orderpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,7 @@ class _HomepageState extends State<Homepage> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 50,
         buttonBackgroundColor: Color.fromRGBO(71, 195, 144, 1),
-        backgroundColor: Color(0xffF6F6F6).withOpacity(1),
+        backgroundColor: Color(0xffF8FBF9).withOpacity(1),
         items: <Widget>[
           Icon(Icons.home,
               size: 30, color: Selected == 0 ? Colors.white : Colors.grey[700]),
@@ -91,7 +92,7 @@ class _HomepageState extends State<Homepage> {
       ),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xffF6F6F6),
+        backgroundColor:Color(0xffF8FBF9),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -484,7 +485,7 @@ class _HomepageState extends State<Homepage> {
               )
             : Selected == 1
                 ? Category()
-                : Container(),
+                : Order(),
       ),
     );
   }
